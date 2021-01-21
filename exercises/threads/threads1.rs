@@ -6,7 +6,6 @@
 // of "waiting..." and the program ends without timing out when running,
 // you've got it :)
 
-// I AM NOT DONE
 
 use std::sync::{Arc, Mutex};
 use std::thread;
@@ -22,7 +21,6 @@ fn main() {
     let handle = thread::spawn(move || {
         let mut num = status_shared.lock().unwrap();
         for _ in 0..10 {
-            println!("inside handle {:?}", num.jobs_completed);
             num.jobs_completed += 1;
             thread::sleep(Duration::from_millis(250));
         }   
